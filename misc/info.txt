@@ -1,0 +1,10 @@
+- some strings in the game are stored in ascii format
+	- these are found in game_text.txt
+
+- others are stored in a more obfuscated format with the use of the function at 1458. The data is stored at offsets in memory and are
+	each xored with a different key. The key is generated with the add operation before the call to 1458. Note that strings in memory
+	are stored such that the first number is the length of the string (say n) and it is followed immediately by the n characters of the
+	string
+	- these are found in xored_game_text.txt
+	- there are no game codes in this section, however
+	- note that at this time, certain strings do not show up because the decompiler interprets them as instructions, not integers
