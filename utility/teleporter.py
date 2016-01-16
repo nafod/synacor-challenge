@@ -80,7 +80,7 @@ def optimized():
 	y = y % 32768
 	x = (y + 1) % 32768
 
-z = 12852
+z = 1
 while z < 32768:
 	x = 4
 	y = 1

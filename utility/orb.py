@@ -18,7 +18,8 @@ values = [
 stack = [{"x": 3, "y": 0, "trail": [], "orb": 22}]
 solutions = []
 
-print("Now processing possible combinations (this may take a while)...")
+print("Now processing possible combinations (this may take a while)...", end='')
+sys.stdout.flush()
 
 # Continue while we don't have a solution
 while len(stack) > 0:
@@ -38,8 +39,11 @@ while len(stack) > 0:
 		continue
 
 	# If we have a solution, we don't need to build off of it
-	if x == 0 and y == 3 and orb == 30:
-		solutions.append( (len(trail), current) )
+	if x == 0 and y == 3:
+		if orb == 30:
+			solutions.append( (len(trail), current) )
+
+		# Solution is the end, so we drop anyways
 		continue
 
 	if symbol == "+":
@@ -122,6 +126,5 @@ print("Completed!")
 
 print("Solutions:")
 
-solutions = sorted(solutions)
 for s in solutions:
 	print(s)
